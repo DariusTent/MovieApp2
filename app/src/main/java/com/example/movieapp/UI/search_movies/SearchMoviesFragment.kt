@@ -1,6 +1,7 @@
 package com.example.movieapp.UI.search_movies
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,6 +34,9 @@ class SearchMoviesFragment : Fragment() {
 
     private var movies: List<Movie> = emptyList()
     private val movieRepository = MovieRepository.instance
+    private val genreRepository =GenreRepository.instance
+    private var genreIds =""
+    private var actorIds = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -57,7 +61,28 @@ class SearchMoviesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        getMovies()
+
+        getQueryParams()
+    }
+
+    private fun getQueryParams(){
+        preselectSavedGenres()
+    }
+
+    private fun preselectSavedGenres(){
+        GlobalScope.launch(Dispatchers.IO){
+            val savedGenresIds: List<Int> = genreRepository.getAllLocalIds()
+            genreIds = savedGenresIds.joinToString(separator = "|"){"$it"}
+
+            //val savedActorIds: List<Int> = actorReporsitory.getAllLocalIds()
+            //genreIds = savedActorIds.joinToString(separator = "|"){"$it"}
+            actorIds = ""
+            Log.d("Test", "Rezultat: $genreIds")
+
+            withContext(Dispatchers.Main){
+                getMovies()
+            }
+        }
     }
 
     private fun getMovies(){
