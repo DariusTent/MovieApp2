@@ -15,12 +15,17 @@ data class Movie(
     @ColumnInfo(name = "title")
     var title: String,
 
-    @ColumnInfo(name = "isSelected")
-    var isSelected: Boolean
+    @ColumnInfo(name = "description")
+    var description: String,
+
+
+    var image: String,
+
+    var date: String
 ){
     override fun equals(other: Any?) = (other is Movie) && id == other.id
 
     override fun toString(): String {
-        return "Movie(id=$id, title='$title', isSelected=$isSelected)"
+        return "Movie(id=$id, title='$title')"
     }
 }

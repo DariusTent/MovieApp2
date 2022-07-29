@@ -22,7 +22,7 @@ interface MovieDAO {
     @Query("DELETE FROM movies")
     fun deleteAll()
 
-  //  @Transaction
+    @Transaction
     fun replaceAll(movies: List<Movie>){
         deleteAll()
         saveAll(movies)

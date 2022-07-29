@@ -5,7 +5,9 @@ class MovieMapper {
         return Movie(
             id = movieResponse.id,
             title = movieResponse.title,
-            isSelected = false
+            description = movieResponse.description,
+            image = movieResponse.image,
+            date = movieResponse.date
         )
     }
 }

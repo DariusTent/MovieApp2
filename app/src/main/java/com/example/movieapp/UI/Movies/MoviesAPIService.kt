@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface MoviesAPIService {
-    @GET("discover/movie")
+    @GET("search/movie")
     fun getMovies(@Query("api_key") apiKey : String,
                   @Query("language") language : String,
 
