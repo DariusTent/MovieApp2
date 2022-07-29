@@ -17,7 +17,7 @@ class Database private constructor(){
 
     @androidx.room.Database(
         entities = [Genre::class, Actor::class, Movie::class],
-        version = 5
+        version = 1
     )
 
     abstract class MovieAppDatabase: RoomDatabase(){

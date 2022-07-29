@@ -15,7 +15,7 @@ class MoviesAdapter(private val moviesList: List<Movie>) :
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.txtMovieTitle)
-        val parentView: ConstraintLayout = view.findViewById(R.id.clMovie)
+        val parentView: ConstraintLayout = view.findViewById(R.id.MovieItem)
         val txtDescription: TextView = view.findViewById(R.id.txtMovieDescription)
     }
 

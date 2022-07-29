@@ -18,9 +18,9 @@ data class Movie(
     @ColumnInfo(name = "description")
     var description: String,
 
-
+    @ColumnInfo(name = "image")
     var image: String,
-
+    @ColumnInfo(name = "date")
     var date: String
 ){
     override fun equals(other: Any?) = (other is Movie) && id == other.id
