@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -35,7 +36,7 @@ class SearchMoviesFragment : Fragment() {
     private var movies: List<Movie> = emptyList()
     private val movieRepository = MovieRepository.instance
     private val genreRepository =GenreRepository.instance
-    private var genreIds =""
+    private var genreIds = ""
     private var actorIds = ""
 
     override fun onCreateView(
@@ -63,6 +64,7 @@ class SearchMoviesFragment : Fragment() {
 
 
         getQueryParams()
+        setSearchTextListener()
     }
 
     private fun getQueryParams(){
@@ -106,5 +108,29 @@ class SearchMoviesFragment : Fragment() {
         rvMovies.adapter = MoviesAdapter(movies)
     }
 
+    private fun setSearchTextListener() {
+        val search = binding.searchView
+        search.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(newText: String?): Boolean {
+                return false
+            }
 
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if((newText?.length ?: 0) >= 1) {
+                   getSearchedMovies(newText ?: "")
+                } else
+                    getMovies()
+                return false
+            }
+        })
+    }
+
+    fun getSearchedMovies(query:String){
+        GlobalScope.launch (Dispatchers.IO){
+            movies = movieRepository.getSearchedMovies(query)
+            withContext(Dispatchers.Main){
+                binding.rvMovies.adapter = MoviesAdapter(movies)
+            }
+        }
+    }
 }

@@ -8,9 +8,9 @@ class MovieResponse(
     @SerializedName("title")
     var title: String,
     @SerializedName("overview")
-    var description: String,
+    var description: String?,
     @SerializedName("poster_path")
-    var image: String,
+    var image: String?,
     @SerializedName("release_date")
-    var date: String
+    var date: String?
 )

@@ -16,12 +16,12 @@ data class Movie(
     var title: String,
 
     @ColumnInfo(name = "description")
-    var description: String,
+    var description: String?,
 
     @ColumnInfo(name = "image")
-    var image: String,
+    var image: String?,
     @ColumnInfo(name = "date")
-    var date: String
+    var date: String?
 ){
     override fun equals(other: Any?) = (other is Movie) && id == other.id
 
