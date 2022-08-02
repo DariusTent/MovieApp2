@@ -21,11 +21,5 @@ class TabbedMainActivity : AppCompatActivity() {
         binding = ActivityMainTabsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val fab: FloatingActionButton = binding.fab
-
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
         }
     }
-}

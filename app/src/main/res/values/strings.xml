@@ -11,8 +11,8 @@
     <string name="menu_search_movies">Search Movies</string>
     <string name="menu_save_movies">Saved Movies</string>
     <string name="title_activity_tabbed_main">TabbedMainActivity</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_1">Saved</string>
+    <string name="tab_text_2">Favourite</string>
 
     <string name="favourite">Favourite</string>
     <string name="watched">Watched</string>

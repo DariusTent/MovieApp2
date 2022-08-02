@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.168" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/drawable/ic_check.xml" value="0.209" />
+        <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/drawable/ic_favourite.xml" value="0.176" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/drawable/ic_menu_camera.xml" value="0.1" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.162" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/drawable/ic_new_saved.xml" value="0.1" />
@@ -17,7 +18,7 @@
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/activity_main_tabs.xml" value="0.1" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/activity_movies.xml" value="0.190625" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/activity_onboardingscreen.xml" value="0.21875" />
-        <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/activity_search.xml" value="0.1" />
+        <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/activity_search.xml" value="0.4" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.22826086956521738" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/activity_splashscreen.xml" value="0.2" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/activity_tabbed_main.xml" value="0.1" />
@@ -31,7 +32,7 @@
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/item_actor.xml" value="0.2477355072463768" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/item_actors.xml" value="0.2318840579710145" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/item_genre.xml" value="0.1" />
-        <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/item_movie.xml" value="0.1" />
+        <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/item_movie.xml" value="0.264" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/nav_header_search.xml" value="0.1" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/menu/activity_main_drawer.xml" value="0.4" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/menu/search.xml" value="0.1" />
