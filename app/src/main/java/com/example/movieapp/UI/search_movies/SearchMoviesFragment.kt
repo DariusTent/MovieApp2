@@ -12,6 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movieapp.R
+import com.example.movieapp.UI.Actors.Actor
+import com.example.movieapp.UI.Actors.ActorRepository
 import com.example.movieapp.UI.Genres.Genre
 import com.example.movieapp.UI.Genres.GenreRepository
 import com.example.movieapp.UI.Genres.GenresAdapter
@@ -35,9 +37,11 @@ class SearchMoviesFragment : Fragment() {
 
     private var movies: List<Movie> = emptyList()
     private val movieRepository = MovieRepository.instance
-    private val genreRepository =GenreRepository.instance
+    private val genreRepository = GenreRepository.instance
+    private val actorRepository = ActorRepository.instance
     private var genreIds = ""
     private var actorIds = ""
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -62,43 +66,40 @@ class SearchMoviesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         getQueryParams()
         setSearchTextListener()
     }
 
-    private fun getQueryParams(){
+    private fun getQueryParams() {
         preselectSavedGenres()
     }
 
-    private fun preselectSavedGenres(){
-        GlobalScope.launch(Dispatchers.IO){
+    private fun preselectSavedGenres() {
+        GlobalScope.launch(Dispatchers.IO) {
             val savedGenresIds: List<Int> = genreRepository.getAllLocalIds()
-            genreIds = savedGenresIds.joinToString(separator = "|"){"$it"}
-
-            //val savedActorIds: List<Int> = actorReporsitory.getAllLocalIds()
-            //genreIds = savedActorIds.joinToString(separator = "|"){"$it"}
-            actorIds = ""
+            val savedActorsIds: List<Actor> = actorRepository.getAllLocalIds()
+            genreIds = savedGenresIds.joinToString(separator = "|") { "$it" }
+            actorIds = savedActorsIds.joinToString(separator = "|") { "$it" }
             Log.d("Test", "Rezultat: $genreIds")
-
-            withContext(Dispatchers.Main){
+            withContext(Dispatchers.Main) {
                 getMovies()
             }
         }
     }
 
-    private fun getMovies(){
-        GlobalScope.launch (Dispatchers.IO){
+    private fun getMovies() {
+        GlobalScope.launch(Dispatchers.IO) {
             movies = movieRepository.getAllRemoteMovies()
-            withContext(Dispatchers.Main){
+            withContext(Dispatchers.Main) {
+                preselectItems()
                 moviesLoaded(movies)
+
             }
         }
     }
 
-    private fun moviesLoaded(movies:List<Movie>){
+    private fun moviesLoaded(movies: List<Movie>) {
         setupRecyclerView()
-
     }
 
     private fun setupRecyclerView() {
@@ -110,14 +111,14 @@ class SearchMoviesFragment : Fragment() {
 
     private fun setSearchTextListener() {
         val search = binding.searchView
-        search.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(newText: String?): Boolean {
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                if((newText?.length ?: 0) >= 1) {
-                   getSearchedMovies(newText ?: "")
+                if ((newText?.length ?: 0) >= 1) {
+                    getSearchedMovies(newText ?: "")
                 } else
                     getMovies()
                 return false
@@ -125,11 +126,25 @@ class SearchMoviesFragment : Fragment() {
         })
     }
 
-    fun getSearchedMovies(query:String){
-        GlobalScope.launch (Dispatchers.IO){
+    fun getSearchedMovies(query: String) {
+        GlobalScope.launch(Dispatchers.IO) {
             movies = movieRepository.getSearchedMovies(query)
-            withContext(Dispatchers.Main){
+            withContext(Dispatchers.Main) {
+                preselectItems()
                 binding.rvMovies.adapter = MoviesAdapter(movies)
+            }
+        }
+    }
+
+    private fun preselectItems() {
+        GlobalScope.launch(Dispatchers.IO) {
+            val saved = movieRepository.getAllLocalMovies()
+            withContext(Dispatchers.Main) {
+                movies.forEach {
+                    val idx = saved.indexOf(it)
+                    it.isFavorite = (idx != -1) && saved[idx].isFavorite
+                    it.isWatched = (idx != -1) && saved[idx].isWatched
+                }
             }
         }
     }

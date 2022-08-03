@@ -7,7 +7,9 @@ class MovieMapper {
             title = movieResponse.title,
             description = movieResponse.description,
             image = movieResponse.image,
-            date = movieResponse.date
+            date = movieResponse.date,
+            isFavorite = false,
+            isWatched = false
         )
     }
 }
