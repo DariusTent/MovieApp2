@@ -8,7 +8,7 @@ import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import com.example.movieapp.UI.tab_activity.ui.main.SectionsPagerAdapter
+
 import com.example.movieapp.databinding.ActivityMainTabsBinding
 
 class TabbedMainActivity : AppCompatActivity() {
