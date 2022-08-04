@@ -56,7 +56,7 @@ class MoviesAdapter(private val moviesList: List<Movie>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val movie = moviesList[position]
-        Glide.with(holder.parentView.context).load( Constants.LinkPoza + moviesList[position].image).into(holder.imageView)
+        Glide.with(holder.itemView.context).load( Constants.LinkPoza + moviesList[position].image).into(holder.imageView)
         holder.title.text = movie.title
         holder.txtDescription.text = movie.description
 

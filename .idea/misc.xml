@@ -35,11 +35,12 @@
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/fragment_search_movies.xml" value="0.25" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/fragment_slideshow.xml" value="0.11770833333333333" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/fragment_tabbed_main.xml" value="0.1" />
-        <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/fragment_watched_list.xml" value="0.1" />
+        <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/fragment_trending.xml" value="0.25" />
+        <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/fragment_watched_list.xml" value="0.2" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/item_actor.xml" value="0.2477355072463768" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/item_actors.xml" value="0.2318840579710145" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/item_genre.xml" value="0.1" />
-        <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/item_movie.xml" value="0.264" />
+        <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/item_movie.xml" value="0.16" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/nav_header_search.xml" value="0.264" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/menu/activity_main_drawer.xml" value="0.264" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/menu/search.xml" value="0.2" />

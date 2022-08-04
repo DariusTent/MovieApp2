@@ -30,4 +30,11 @@ interface MovieDAO {
 
     @Query("SELECT COUNT(id) FROM movies")
     fun getCount() : Int
+
+    @Query("SELECT * FROM movies WHERE is_favorite = 1")
+    fun getFavourite(): List<Movie>
+
+    @Query("SELECT * FROM movies WHERE is_watched = 1 ")
+    fun getWatched(): List<Movie>
+
 }

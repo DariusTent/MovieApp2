@@ -24,4 +24,11 @@ class MovieRemoteDataSource(retrofit: Retrofit) {
             .map { movieMapper.map(it) }
     }
 
+    fun getPreference(withCast:String, withGenres:String): List<Movie> {
+        return apiService.moviePreference(Constants.API_KEY, Constants.LANGUAGE,withCast,withGenres)
+            .executeAndDeliver()
+            .movies
+            .map { movieMapper.map(it) }
+    }
+
 }

@@ -13,4 +13,6 @@ class MovieLocalDataSource(database: Database) {
     fun deleteAll(movies: List<Movie>) = movieDAO.deleteAll(movies)
     fun replaceAll(movies: List<Movie>) = movieDAO.replaceAll(movies)
     fun getCount() = movieDAO.getCount()
+    fun getFavourite() = movieDAO.getFavourite()
+    fun getWatched() = movieDAO.getWatched()
 }
