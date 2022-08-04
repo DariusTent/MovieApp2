@@ -88,7 +88,7 @@ class TrendingMoviesFragment : Fragment() {
             val savedActorsIds: List<Int> = actorRepository.getAllLocalIds()
             genreIds = savedGenresIds.joinToString(separator = "|") { "$it" }
             actorIds = savedActorsIds.joinToString(separator = "|") { "$it" }
-            movies = movieRepository.getPreference()
+            movies = movieRepository.getPreference(actorIds,genreIds)
             withContext(Dispatchers.Main) {
                 moviesLoaded(movies)
 

@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/nav_trending"
         android:name="com.example.movieapp.UI.search_movies.TrendingMoviesFragment"
-        android:label="@string/menu_save_movies"
+        android:label="Preferences"
         tools:layout="@layout/fragment_saved_movies" />
 
 </navigation>

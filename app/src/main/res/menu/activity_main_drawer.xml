@@ -14,8 +14,8 @@
             android:title="@string/menu_save_movies" />
         <item
             android:id="@+id/nav_trending"
-            android:icon="@drawable/ic_new_saved"
-            android:title="Trending" />
+            android:icon="@drawable/ic_preferences"
+            android:title="Preferences" />
 
     </group>
 </menu>
