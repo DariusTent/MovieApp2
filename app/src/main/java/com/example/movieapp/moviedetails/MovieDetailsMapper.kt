@@ -11,7 +11,8 @@ class MovieDetailsMapper {
             backdropPath = movieResponse.backdropPath,
             overview = movieResponse.overview ,
             posterPath = movieResponse.posterPath,
-            releaseDate = movieResponse.releaseDate
+            releaseDate = movieResponse.releaseDate,
+            videos = movieResponse.videos
         )
     }
 }

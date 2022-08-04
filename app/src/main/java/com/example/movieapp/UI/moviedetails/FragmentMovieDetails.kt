@@ -40,22 +40,35 @@ class FragmentMovieDetails : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        GlobalScope.launch(Dispatchers.IO) {
+        GlobalScope.launch (Dispatchers.IO) {
             viewModel.movie = viewModel.getMovieDetails()
             withContext(Dispatchers.Main) {
-                populateViews()
+                binding.tvReleaseDate.text=viewModel.movie?.releaseDate
+                binding.tvDescription.text=viewModel.movie?.overview
+                binding.tvTitle.text=viewModel.movie?.title
+                loadYtbVideos()
             }
         }
+
     }
 
-    private fun populateViews() {
-        binding.tvTitle.text = viewModel.movie?.title
-//        binding.youtubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
-//            override fun onReady(youTubePlayer: YouTubePlayer) {
-//                val videoId = "S0Q4gqBUs7c"
-//                youTubePlayer.loadVideo(viewModel.movie., 0f)
-//            }
-//        })
-        binding.tvReleaseDate.text = viewModel.movie?.releaseDate
+    private fun loadYtbVideos(){
+        binding.youtubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+            override fun onReady(youTubePlayer: YouTubePlayer) {
+                viewModel.movie?.videos?.results?.get(0)?.let { youTubePlayer.loadVideo(findYoutubeTrailer(), 0f) }
+            }
+        })
     }
+
+
+    private fun findYoutubeTrailer() : String {
+        viewModel.movie?.videos?.results?.let{ videoList ->
+            for(video in videoList) {
+                if(video.type == "Trailer")
+                    return video.key
+            }
+        }
+        return ""
+    }
+
 }

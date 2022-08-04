@@ -9,4 +9,6 @@ data class MovieDetailsResponse (
     @SerializedName("poster_path") var posterPath: String?,
     @SerializedName("release_date") var releaseDate: String,
     @SerializedName("title") var title: String,
+
+    var videos:VideosList
 )

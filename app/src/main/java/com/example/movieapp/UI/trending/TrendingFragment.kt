@@ -1,37 +1,27 @@
-package com.example.movieapp.UI.search_movies
-
+package com.example.movieapp.UI.trending
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.movieapp.R
-import com.example.movieapp.UI.Actors.Actor
 import com.example.movieapp.UI.Actors.ActorRepository
-import com.example.movieapp.UI.Genres.Genre
 import com.example.movieapp.UI.Genres.GenreRepository
-import com.example.movieapp.UI.Genres.GenresAdapter
 import com.example.movieapp.UI.Movies.Movie
 import com.example.movieapp.UI.Movies.MovieRepository
 import com.example.movieapp.UI.Movies.MoviesAdapter
 import com.example.movieapp.UI.moviedetails.MovieDetailsViewModel
-import com.example.movieapp.UI.trending.TrendingViewModel
 import com.example.movieapp.databinding.FragmentTrendingBinding
 
-import com.example.movieapp.ui.home.SearchViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class TrendingMoviesFragment : Fragment() {
+class TrendingFragment : Fragment() {
 
     private var _binding: FragmentTrendingBinding? = null
 
@@ -60,6 +50,7 @@ class TrendingMoviesFragment : Fragment() {
         val homeViewModel =
             ViewModelProvider(this).get(TrendingViewModel::class.java)
 
+        viewModel = ViewModelProvider(requireActivity())[MovieDetailsViewModel::class.java]
         _binding = FragmentTrendingBinding.inflate(inflater, container, false)
         val root: View = binding.root
 

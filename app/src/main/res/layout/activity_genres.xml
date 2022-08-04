@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         app:tint="@android:color/white"
         android:src="@drawable/ic_check"
+        app:backgroundTint="@color/purple"
         android:layout_margin="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

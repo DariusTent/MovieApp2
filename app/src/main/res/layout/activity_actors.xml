@@ -17,13 +17,14 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnSave"
-        tools:listitem="@layout/item_genre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:tint="@android:color/white"
-        android:src="@drawable/ic_check"
         android:layout_margin="28dp"
+        android:src="@drawable/ic_check"
+        app:backgroundTint="@color/purple"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@android:color/white"
+        tools:listitem="@layout/item_genre" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

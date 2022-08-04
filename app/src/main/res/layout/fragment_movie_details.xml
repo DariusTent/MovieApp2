@@ -28,11 +28,13 @@
 
             <TextView
                 android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="25dp"
-                android:textColor="@color/white"
+                android:layout_width="364dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="100dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="28dp"
+                android:gravity="center"
+                android:textColor="@color/purple"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -43,13 +45,13 @@
                 android:id="@+id/tvReleaseDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
                 android:textColor="@color/white"
+                android:layout_marginTop="25dp"
                 android:textSize="21sp"
-                app:layout_constraintBottom_toBottomOf="@id/tvTitle"
-                app:layout_constraintStart_toEndOf="@id/tvTitle"
-                app:layout_constraintTop_toTopOf="@id/tvTitle"
-                tools:text="25.06 toamna tarziu" />
+                app:layout_constraintEnd_toEndOf="@id/tvTitle"
+                app:layout_constraintStart_toStartOf="@id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                tools:text="25.06.2022" />
 
             <TextView
                 android:id="@+id/tvDescription"
@@ -62,7 +64,7 @@
                 android:textSize="17sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/tvTitle"
-                app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvReleaseDate"
                 tools:text="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout." />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
