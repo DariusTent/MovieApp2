@@ -8,6 +8,7 @@ data class MovieDetails (
     var posterPath: String?,
     var releaseDate: String?,
     var title: String,
+
 )
 
 

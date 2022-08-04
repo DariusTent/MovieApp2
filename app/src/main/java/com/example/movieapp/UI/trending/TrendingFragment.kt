@@ -23,8 +23,8 @@ import com.example.movieapp.UI.Movies.MovieRepository
 import com.example.movieapp.UI.Movies.MoviesAdapter
 import com.example.movieapp.UI.moviedetails.MovieDetailsViewModel
 import com.example.movieapp.UI.trending.TrendingViewModel
-import com.example.movieapp.databinding.FragmentSearchMoviesBinding
 import com.example.movieapp.databinding.FragmentTrendingBinding
+
 import com.example.movieapp.ui.home.SearchViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
