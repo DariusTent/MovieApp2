@@ -1,5 +1,7 @@
 package com.example.movieapp.UI.Movies
 
+import com.example.movieapp.moviedetails.MovieDetails
+import com.example.movieapp.moviedetails.MovieDetailsMapper
 import com.example.movieapp.network.executeAndDeliver
 import com.example.movieapp.utils.Constants
 import com.example.movieapp.utils.Constants.API_KEY
@@ -9,6 +11,7 @@ import retrofit2.Retrofit
 class MovieRemoteDataSource(retrofit: Retrofit) {
     private val apiService: MoviesAPIService = retrofit.create(MoviesAPIService::class.java)
     private val movieMapper = MovieMapper()
+    private val movieDetailsMapper = MovieDetailsMapper()
 
     fun getMovies(): List<Movie> {
         return apiService.getMovies(API_KEY, LANGUAGE)
@@ -31,4 +34,9 @@ class MovieRemoteDataSource(retrofit: Retrofit) {
             .map { movieMapper.map(it) }
     }
 
+    fun getMovieDetails(movieId : Int): MovieDetails{
+        return apiService.getMovieDetails(movieId, Constants.API_KEY,Constants.LANGUAGE,Constants.APPEND_TO_RESPONSE)
+            .executeAndDeliver()
+            .let { movieDetailsMapper.map(it) }
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.movieapp.UI.Movies
 
 import android.view.LayoutInflater
+import android.view.ScrollCaptureCallback
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
@@ -10,25 +11,28 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movieapp.R
+import com.example.movieapp.UI.moviedetails.MovieDetailsViewModel
 import com.example.movieapp.utils.Constants
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class MoviesAdapter(private val moviesList: List<Movie>) :
+class MoviesAdapter(private val moviesList: List<Movie>,
+                    private val detailsCallback: (() -> Unit)?,
+                    private val viewModel: MovieDetailsViewModel
+) :
     RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var favourite: Boolean = false
         var watched: Boolean = false
-
-
         val title: TextView = view.findViewById(R.id.txtMovieTitle)
         val parentView: ConstraintLayout = view.findViewById(R.id.MovieItem)
         val txtDescription: TextView = view.findViewById(R.id.txtMovieDescription)
         val imageView:ImageView = view.findViewById(R.id.ImgMovie)
         val itemBtnFavourite : ImageButton = view.findViewById(R.id.btnFavorite)
         val itemBtnWatched : ImageButton= view.findViewById(R.id.btnWatched)
+
     }
 
     private val moviesRep: MovieRepository = MovieRepository.instance
@@ -59,6 +63,11 @@ class MoviesAdapter(private val moviesList: List<Movie>) :
         Glide.with(holder.itemView.context).load( Constants.LinkPoza + moviesList[position].image).into(holder.imageView)
         holder.title.text = movie.title
         holder.txtDescription.text = movie.description
+
+        holder.parentView.setOnClickListener{
+            viewModel.currentMovieId.postValue(movie.id)
+            detailsCallback?.invoke()
+        }
 
         holder.favourite = movie.isFavorite
         holder.watched = movie.isWatched

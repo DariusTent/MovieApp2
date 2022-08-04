@@ -9,6 +9,7 @@ import android.widget.SearchView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movieapp.R
@@ -20,6 +21,7 @@ import com.example.movieapp.UI.Genres.GenresAdapter
 import com.example.movieapp.UI.Movies.Movie
 import com.example.movieapp.UI.Movies.MovieRepository
 import com.example.movieapp.UI.Movies.MoviesAdapter
+import com.example.movieapp.UI.moviedetails.MovieDetailsViewModel
 import com.example.movieapp.UI.trending.TrendingViewModel
 import com.example.movieapp.databinding.FragmentSearchMoviesBinding
 import com.example.movieapp.databinding.FragmentTrendingBinding
@@ -44,6 +46,8 @@ class TrendingMoviesFragment : Fragment() {
     private val actorRepository = ActorRepository.instance
     private var genreIds = ""
     private var actorIds = ""
+
+    private lateinit var viewModel: MovieDetailsViewModel
 
 
 
@@ -104,6 +108,10 @@ class TrendingMoviesFragment : Fragment() {
         val rvMovies = binding.rvMovies
         rvMovies.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        rvMovies.adapter = MoviesAdapter(movies)
+        rvMovies.adapter = MoviesAdapter(movies, { navigateToMovieDetails()} , viewModel )
+    }
+
+    private fun navigateToMovieDetails() {
+        findNavController().navigate(R.id.fragmentMovieDetails)
     }
 }

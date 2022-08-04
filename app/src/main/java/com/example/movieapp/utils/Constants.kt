@@ -6,5 +6,6 @@ object Constants {
     const val LANGUAGE = "en-US"
     const val PAGE = "1"
     const val LinkPoza = "https://image.tmdb.org/t/p/h632"
+    const val APPEND_TO_RESPONSE = "videos"
 
 }
