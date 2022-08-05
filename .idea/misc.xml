@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.168" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/drawable/ic_check.xml" value="0.209" />
+        <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/drawable/ic_delete.xml" value="0.172" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/drawable/ic_favourite.xml" value="0.176" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/drawable/ic_favourite_empty.xml" value="0.108" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/drawable/ic_favourite_full.xml" value="0.1" />
@@ -44,6 +45,8 @@
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/item_actors.xml" value="0.2318840579710145" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/item_genre.xml" value="0.1" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/item_movie.xml" value="0.16" />
+        <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/item_movie_delete.xml" value="0.19895833333333332" />
+        <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/item_movie_watched_favourite.xml" value="0.21614583333333334" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/layout/nav_header_search.xml" value="0.264" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/menu/activity_main_drawer.xml" value="0.264" />
         <entry key="..\:/Android Studio/Projects/MovieApp/app/src/main/res/menu/search.xml" value="0.2" />

@@ -22,9 +22,12 @@ class MovieRepository private constructor() {
     fun deleteAllLocal() = movieLocalDataSource.deleteAll()
     fun deleteAllLocal(movies: List<Movie>) = movieLocalDataSource.deleteAll(movies)
     fun replaceAllLocal(movies: List<Movie>) = movieLocalDataSource.replaceAll(movies)
+    fun replaceMovieLocal(movie : Movie) = movieLocalDataSource.replaceMovie(movie)
     fun getCount() = movieLocalDataSource.getCount()
     fun getPreference(withCast:String,withGenre:String)=movieRemoteDataSource.getPreference(withCast, withGenre)
     fun getPreference() = movieRemoteDataSource.getMovies()
     fun getFavourite() = movieLocalDataSource.getFavourite()
     fun getWatched() = movieLocalDataSource.getWatched()
+
+    fun getMovieById(id: Int) = movieLocalDataSource.getMovieById(id)
 }

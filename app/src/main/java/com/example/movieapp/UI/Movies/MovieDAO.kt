@@ -7,8 +7,16 @@ interface MovieDAO {
     @Query("SELECT * from movies")
     fun getAll(): List<Movie>
 
+
+    @Query("SELECT * from movies where id=:id")
+    fun getMovieById(id : Int): Movie
+
     @Insert
     fun save(movie: Movie)
+
+
+    @Update
+    fun updateMovie(movie: Movie)
 
     @Insert
     fun saveAll(movies: List<Movie>)
@@ -36,5 +44,8 @@ interface MovieDAO {
 
     @Query("SELECT * FROM movies WHERE is_watched = 1 ")
     fun getWatched(): List<Movie>
+
+
+
 
 }

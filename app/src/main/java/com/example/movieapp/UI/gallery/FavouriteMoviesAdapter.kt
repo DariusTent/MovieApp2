@@ -3,7 +3,6 @@ package com.example.movieapp.UI.gallery
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -23,9 +22,10 @@ class FavouriteMoviesAdapter(
         var favorite: Boolean = false
         var watched: Boolean = false
 
-        val itemIvMovie = view.findViewById<ImageView>(R.id.ImgMovie)!!
-        val itemIvTitle = view.findViewById<TextView>(R.id.txtMovieTitle)!!
+        val itemIvMovie = view.findViewById<ImageView>(R.id.imgMovie)!!
+        val itemIvTitle = view.findViewById<TextView>(R.id.txtMovieName)!!
         val itemIvOverview = view.findViewById<TextView>(R.id.txtMovieDescription)!!
+        val itemBtnDelete =view.findViewById<ImageView>(R.id.btnDelete)!!
 
     }
 
@@ -33,7 +33,7 @@ class FavouriteMoviesAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_movie, parent, false)
+            .inflate(R.layout.item_movie_delete, parent, false)
 
         return ViewHolder(view)
     }
@@ -51,24 +51,26 @@ class FavouriteMoviesAdapter(
         holder.favorite = moviesList[position].isFavorite
         holder.watched = moviesList[position].isWatched
 
-//        holder.itemBtnDelete.setOnClickListener {
-//            updateItem(moviesList[position])
-//            moviesList.removeAt(position)
-//            notifyItemRemoved(position)
- //           notifyItemRangeChanged(position, moviesList.size)
- //       }
+        holder.itemBtnDelete.setOnClickListener {
+            updateItem(moviesList[position])
+            moviesList.removeAt(position)
+            notifyItemRemoved(position)
+            notifyItemRangeChanged(position, moviesList.size)
+        }
     }
 
     private fun updateItem(movie: Movie) {
         GlobalScope.launch(Dispatchers.IO) {
-            val saved = ArrayList(moviesRep.getAllLocalMovies())
-            val idx = saved.indexOf(movie)
-            if (idx != -1) saved[idx].isFavorite = !saved[idx].isFavorite
-            if (!saved[idx].isFavorite && !saved[idx].isWatched) {
-                moviesRep.deleteLocal(saved[idx])
-                saved.removeAt(idx)
-            }
-            moviesRep.replaceAllLocal(saved.toList())
+//            val savedMovie = moviesRep.getMovieById(movie.id)
+//            val idx = saved.indexOf(movie)
+//            if (idx != -1) saved[idx].isFavorite = !saved[idx].isFavorite
+//            if (!saved[idx].isFavorite && !saved[idx].isWatched) {
+//                moviesRep.deleteLocal(saved[idx])
+//                saved.removeAt(idx)
+//            }
+
+            movie.isFavorite = false
+            moviesRep.replaceMovieLocal(movie)
         }
     }
 

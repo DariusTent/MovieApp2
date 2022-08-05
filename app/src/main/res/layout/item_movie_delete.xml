@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/parent"
+    tools:background="@color/black"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/imgMovie"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:layout_margin="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtMovieName"
+        android:layout_width="110dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:paddingVertical="10dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imgMovie"
+        app:layout_constraintTop_toTopOf="@+id/imgMovie"
+        tools:text="Titanic" />
+
+    <TextView
+        android:id="@+id/txtMovieDescription"
+        android:layout_width="288dp"
+        android:layout_height="128dp"
+        android:textColor="@color/white"
+        android:layout_marginBottom="19dp"
+        android:paddingVertical="10dp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imgMovie"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.245"
+        app:layout_constraintStart_toStartOf="@+id/txtMovieName"
+        app:layout_constraintTop_toBottomOf="@+id/txtMovieName"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="text description" />
+
+    <ImageButton
+        android:id="@+id/btnDelete"
+        android:layout_width="56dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="13dp"
+        android:backgroundTint="#19ffffff"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:foregroundTint="@color/purple"
+        android:src="@drawable/ic_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/purple" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

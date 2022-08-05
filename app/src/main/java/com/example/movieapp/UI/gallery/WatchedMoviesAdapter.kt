@@ -22,9 +22,10 @@ class WatchedMoviesAdapter(
         var favorite: Boolean = false
         var watched: Boolean = false
 
-        val itemIvMovie = view.findViewById<ImageView>(R.id.ImgMovie)!!
-        val itemIvTitle = view.findViewById<TextView>(R.id.txtMovieTitle)!!
+        val itemIvMovie = view.findViewById<ImageView>(R.id.imgMovie)!!
+        val itemIvTitle = view.findViewById<TextView>(R.id.txtMovieName)!!
         val itemIvOverview = view.findViewById<TextView>(R.id.txtMovieDescription)!!
+        val itemBtnDelete =view.findViewById<ImageView>(R.id.btnDelete)!!
 
     }
 
@@ -32,7 +33,7 @@ class WatchedMoviesAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_movie, parent, false)
+            .inflate(R.layout.item_movie_delete, parent, false)
 
         return ViewHolder(view)
     }
@@ -51,24 +52,25 @@ class WatchedMoviesAdapter(
         holder.favorite = moviesList[position].isFavorite
         holder.watched = moviesList[position].isWatched
 
-//        holder.itemBtnDelete.setOnClickListener {
-//            updateItem(moviesList[position])
-//            moviesList.removeAt(position)
-//            notifyItemRemoved(position)
-        //           notifyItemRangeChanged(position, moviesList.size)
-        //       }
+        holder.itemBtnDelete.setOnClickListener {
+            updateItem(moviesList[position])
+            moviesList.removeAt(position)
+            notifyItemRemoved(position)
+                   notifyItemRangeChanged(position, moviesList.size)
+        }
     }
 
     private fun updateItem(movie: Movie) {
         GlobalScope.launch(Dispatchers.IO) {
-            val saved = ArrayList(moviesRep.getAllLocalMovies())
-            val idx = saved.indexOf(movie)
-            if (idx != -1) saved[idx].isFavorite = !saved[idx].isFavorite
-            if (!saved[idx].isFavorite && !saved[idx].isWatched) {
-                moviesRep.deleteLocal(saved[idx])
-                saved.removeAt(idx)
-            }
-            moviesRep.replaceAllLocal(saved.toList())
+//            val saved = ArrayList(moviesRep.getAllLocalMovies())
+//            val idx = saved.indexOf(movie)
+//            if (idx != -1) saved[idx].isFavorite = !saved[idx].isFavorite
+//            if (!saved[idx].isFavorite && !saved[idx].isWatched) {
+//                moviesRep.deleteLocal(saved[idx])
+//                saved.removeAt(idx)
+//            }
+            movie.isWatched = false
+            moviesRep.replaceMovieLocal(movie)
         }
     }
 
