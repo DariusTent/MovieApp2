@@ -18,8 +18,8 @@
 
     <TextView
         android:id="@+id/txtMovieName"
-        android:layout_width="110dp"
-        android:layout_height="45dp"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:paddingVertical="10dp"
@@ -52,11 +52,14 @@
         android:layout_width="56dp"
         android:layout_height="40dp"
         android:layout_marginTop="13dp"
+        android:layout_marginBottom="3dp"
         android:backgroundTint="#19ffffff"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:foregroundTint="@color/purple"
         android:src="@drawable/ic_delete"
+        app:layout_constraintBottom_toTopOf="@+id/txtMovieDescription"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtMovieName"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/purple" />
 
