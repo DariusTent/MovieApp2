@@ -41,7 +41,7 @@ private lateinit var binding: ActivitySearchBinding
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.nav_search_movies, R.id.nav_gallery,R.id.nav_trending), drawerLayout)
+            R.id.nav_search_movies, R.id.nav_gallery,R.id.nav_trending,R.id.nav_settings), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }

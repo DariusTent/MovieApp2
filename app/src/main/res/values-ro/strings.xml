@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MovieApp</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">MovieApp Android</string>
+    <string name="nav_header_subtitle">tent_tipisca@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Setări</string>
+
+    <string name="menu_search_movies">Căutați filme</string>
+    <string name="menu_save_movies">Filme salvate</string>
+    <string name="title_activity_tabbed_main">TabbedMainActivity</string>
+    <string name="tab_text_1">Vazute</string>+
+    <string name="tab_text_2">Favorite</string>
+
+    <string name="favourite">Favorite</string>
+    <string name="watched">Vazute</string>
+    <string name="preferences">Preferințe</string>
+    <string name="language_settings">Setări Limbă</string>
+    <string name="language_romanian">Română</string>
+</resources>

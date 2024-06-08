@@ -15,7 +15,11 @@
         <item
             android:id="@+id/nav_trending"
             android:icon="@drawable/ic_preferences"
-            android:title="Preferences" />
+            android:title="@string/preferences" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/action_settings" />
 
     </group>
 </menu>

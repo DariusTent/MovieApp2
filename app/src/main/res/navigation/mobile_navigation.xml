@@ -20,11 +20,15 @@
     <fragment
         android:id="@+id/nav_trending"
         android:name="com.example.movieapp.UI.trending.TrendingFragment"
-        android:label="Preferences"
+        android:label="@string/preferences"
         tools:layout="@layout/fragment_saved_movies" />
     <fragment
         android:id="@+id/fragmentMovieDetails"
         android:name="com.example.movieapp.UI.moviedetails.FragmentMovieDetails"
         android:label="Details:" />
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.movieapp.UI.settings.SettingsFragment"
+        android:label="@string/action_settings" />
 
 </navigation>
